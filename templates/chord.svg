@@ -29,10 +29,4 @@
   {{fingers | safe}}
   {{notes | safe}}
   {{minFret | safe}}
-  <text x="150" y="300"
-    class="text"
-    text-anchor="middle"
-    font-size="12"
-    fill="{{foreground}}"
-    font-weight="400">chordgenerator.xyz</text>
 </svg>

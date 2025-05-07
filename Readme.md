@@ -1,5 +1,7 @@
 Rust library to create guitar chord diagrams in SVG format.
 
+**This fork removes the default footer.**
+
 <img src="https://github.com/whostolemyhat/chord-gen/blob/main/fixtures/13217194300744275703.svg" width="300" />
 
 Use it online at [chordgenerator.xyz](https://chordgenerator.xyz)
