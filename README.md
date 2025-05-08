@@ -53,7 +53,7 @@ Passing $-1$ to a string in `Chord.frets` indicates a string is muted. This is r
 
 ```rust
 let shape = [-1, 0, 2, 2, 2, 0];
-let fret = 5;
+let fret = 3;
 let frets: Vec<i32> = shape.iter()
     .map(|&f| {
         if f < 0 {
@@ -82,7 +82,7 @@ let svg = generate_svg(chord).unwrap();
 
 **Produces**:
 
-![img](assets/barre5_maj.svg)
+![img](assets/barre3_maj.svg)
 
 ----
 

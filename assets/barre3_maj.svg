@@ -31,5 +31,5 @@
   <text x="50" y="35" class="text" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="#160c1c" font-weight="400">X</text>
   
   <circle cx="90" cy="110" r="13" fill="#160c1c" /><circle cx="130" cy="190" r="13" fill="#160c1c" /><circle cx="170" cy="190" r="13" fill="#160c1c" /><circle cx="210" cy="190" r="13" fill="#160c1c" /><circle cx="250" cy="110" r="13" fill="#160c1c" />
-  <text x="32" y="110" class="text" dominant-baseline="middle" text-anchor="end" font-size="16" fill="#160c1c" font-weight="400">5</text>
+  <text x="32" y="110" class="text" dominant-baseline="middle" text-anchor="end" font-size="16" fill="#160c1c" font-weight="400">3</text>
 </svg>
