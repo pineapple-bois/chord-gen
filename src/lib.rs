@@ -155,9 +155,9 @@ mod tests {
     use std::path::Path;
 
     #[test]
-    fn generates_svg_for_barre5_major() {
+    fn generates_svg_for_barre3_major() {
         let shape = [-1, 0, 2, 2, 2, 0];
-        let fret = 5;
+        let fret = 3;
         let frets: Vec<i32> = shape.iter()
             .map(|&f| {
                 if f < 0 {
@@ -191,7 +191,7 @@ mod tests {
         assert!(svg.contains("C"));
 
         // Save to file for inspection
-        let out_path = Path::new("fixtures/output/barre5_maj.svg");
+        let out_path = Path::new("fixtures/output/barre3_maj.svg");
         fs::create_dir_all(out_path.parent().unwrap()).unwrap();
         fs::write(out_path, svg).unwrap();
     }
