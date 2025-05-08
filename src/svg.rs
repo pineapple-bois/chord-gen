@@ -6,31 +6,12 @@ use crate::{
 pub fn svg_draw_bg(use_background: bool, palette: &Palette) -> String {
     if use_background {
         format!(
-            "<rect fill=\"{}\" width=\"300\" height=\"310\" rx=\"10\" />",
+            "<rect fill=\"{}\" width=\"300\" height=\"280\" rx=\"10\" />",
             palette.bg
         )
     } else {
         "".into()
     }
-}
-
-pub fn svg_draw_finger(
-    finger: &str,
-    i: GuitarString,
-    string_space: &i32,
-    palette: &Palette,
-) -> String {
-    let x = 50 + (i as i32 * string_space);
-    let y = if finger == "0" || finger == "x" {
-        35
-    } else {
-        265
-    };
-
-    format!(
-        "<text x=\"{}\" y=\"{}\" class=\"text\" dominant-baseline=\"middle\" text-anchor=\"middle\" font-size=\"16\" fill=\"{}\" font-weight=\"400\">{}</text>",
-        x, y, palette.fg, finger
-    )
 }
 
 pub fn svg_draw_min_fret(min_fret: &i32, string_space: &i32, palette: &Palette) -> String {
@@ -134,6 +115,38 @@ pub fn svg_draw_title(chord_settings: &Chord, palette: &Palette) -> String {
         _ => String::from(""),
     }
 }
+
+pub fn svg_draw_muted_string(
+    string: GuitarString,
+    string_space: &i32,
+    palette: &Palette,
+) -> String {
+    let x = 50 + (string as i32 * string_space);
+    let y = 35; // same as open string label height
+
+    format!(
+        "<text x=\"{}\" y=\"{}\" class=\"text\" dominant-baseline=\"middle\" \
+         text-anchor=\"middle\" font-size=\"16\" fill=\"{}\" font-weight=\"400\">X</text>",
+        x, y, palette.fg
+    )
+}
+
+pub fn svg_draw_open_string(
+    string: GuitarString,
+    string_space: &i32,
+    palette: &Palette,
+) -> String {
+    let x = 50 + (string as i32 * string_space);
+    let y = 35; // top text height (same as muted "X")
+
+    format!(
+        "<text x=\"{}\" y=\"{}\" class=\"text\" dominant-baseline=\"middle\" \
+         text-anchor=\"middle\" font-size=\"16\" fill=\"{}\" font-weight=\"400\">0</text>",
+        x, y, palette.fg
+    )
+}
+
+
 
 #[cfg(test)]
 mod tests {
