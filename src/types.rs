@@ -4,7 +4,6 @@ use std::str::FromStr;
 #[derive(Hash, Default)]
 pub struct Chord<'a> {
     pub frets: Vec<i32>,       // -1 = skip
-    pub fingers: Vec<&'a str>, // 'x' = skip
     pub title: Option<&'a String>,
     pub hand: Hand,
     pub suffix: Option<&'a String>,
