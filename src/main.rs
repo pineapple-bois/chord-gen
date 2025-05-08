@@ -18,7 +18,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .author("James Baum <james@jamesbaum.co.uk>")
         .about("Creates guitar chord diagrams")
         .arg(arg!(-f --frets <FRETS> "Notes to fret, 6 comma-separated values. 0 for open string, -1 to skip a string.")) // comma-separated string x,x,0,2,3,2
-        .arg(arg!(-p --fingers <FINGERS> "Suggested fingering, 6 comma-separated values. 0 for open string, x to skip a string.")) // comma-separated string x,x,0,2,3,1
         .arg(arg!(-t --title <TITLE> "Name of chord. Optional."))
         .arg(arg!(-s --suffix <SUFFIX> "Chord suffix to use in title. Optional."))
         .arg(arg!(-d --hand <HANDEDNESS> "Left or right handedness. `left` or `right`. Optional, defaults to right."))
@@ -33,12 +32,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap_or(&default_frets)
         .split(',')
         .map(|letter| letter.parse::<i32>().unwrap_or(-1))
-        .collect();
-
-    let fingers: Vec<&str> = matches
-        .get_one::<String>("fingers")
-        .unwrap_or(&default_frets)
-        .split(',')
         .collect();
 
     let barres: Option<Vec<i32>> = matches.get_one::<String>("barres").map(|frets| {
@@ -66,17 +59,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let use_background = matches.get_one::<bool>("background").unwrap_or(&false);
 
     // examples
-    // cargo run -- -f "x,0,2,2,2,0" -p "x,0,2,1,3,0" -t "A" -d "left"
-    // cargo run -- -f "x,0,2,2,2,0" -p "x,0,2,1,3,0" -t "A"
-    // cargo run -- -f "x,7,6,7,8,x" -p "x,2,1,3,4,x" -t "Hendrix" -d "left"
-    // cargo run -- -f "x,7,6,7,8,x" -p "x,2,1,3,4,x" -t "Hendrix" -d "right"
-    // cargo run -- -f "4,3,1,1,1,x" -p "3,2,1,1,1,x" -t "Broken"
+    // cargo run -- -f "x,0,2,2,2,0" -t "A" -d "left"
+    // cargo run -- -f "x,0,2,2,2,0" -t "A"
+    // cargo run -- -f "x,7,6,7,8,x" -t "Hendrix" -d "left"
+    // cargo run -- -f "x,7,6,7,8,x" -t "Hendrix" -d "right"
+    // cargo run -- -f "4,3,1,1,1,x" -t "Broken"
 
     let output_dir = "./output/";
 
     let chord = Chord {
         frets,
-        fingers,
         title,
         hand,
         suffix,
