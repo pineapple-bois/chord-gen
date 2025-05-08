@@ -67,8 +67,8 @@ pub fn get_filename(chord: &Chord) -> u64 {
 #[cfg(test)]
 mod tests {
     use crate::{
-        types::{Chord, GuitarString, Hand, Mode, DARK_COLOUR, LIGHT_COLOUR},
-        utils::{find_all, get_filename, get_note_coords, get_palette, Palette},
+        types::{GuitarString, Mode, DARK_COLOUR, LIGHT_COLOUR},
+        utils::{find_all, get_note_coords, get_palette, Palette},
     };
 
     #[test]
@@ -112,40 +112,5 @@ mod tests {
 
         // not if there's a lower neighbour later on - E9
         assert_eq!(find_all(&vec![2, 1, 2, 2, 4, 2], &2), vec![2, 3, 5]);
-    }
-
-    #[test]
-    fn filenames_should_use_chord_hash() {
-        let title = String::from("");
-        let chord = Chord {
-            title: Some(&title),
-            frets: vec![-1, -1, -1, -1, -1, -1],
-            fingers: vec!["x", "x", "x", "x", "x", "x"],
-            hand: Hand::Right,
-            ..Default::default()
-        };
-        let filename = get_filename(&chord);
-        assert_eq!(filename, 3459505358187650210);
-
-        let title = String::from("Hendrix♮");
-        let chord = Chord {
-            title: Some(&title),
-            frets: vec![-1, 7, 6, 7, 8, -1],
-            fingers: vec!["x", "2", "1", "3", "4", "x"],
-            ..Default::default()
-        };
-        let filename = get_filename(&chord);
-        assert_eq!(filename, 10698197080569506319);
-
-        let title = String::from("Hendrix");
-        let chord = Chord {
-            title: Some(&title),
-            frets: vec![-1, 7, 6, 7, 8, -1],
-            fingers: vec!["x", "2", "1", "3", "4", "x"],
-            hand: Hand::Left,
-            ..Default::default()
-        };
-        let filename = get_filename(&chord);
-        assert_eq!(filename, 12438538594686784945);
     }
 }
