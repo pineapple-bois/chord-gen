@@ -120,7 +120,7 @@ let svg = generate_svg(chord).unwrap();
 ### Status
 
 Two simple unit tests are defined in src/lib.rs:
-- `generates_svg_for_barre5_major`: renders a Barre5 C major chord at the 5th fret and saves it as `fixtures/output/barre5_maj.svg`.
+- `generates_svg_for_barre3_major`: renders a Barre5 C major chord at the 3th fret and saves it as `fixtures/output/barre5_maj.svg`.
 - `generates_svg_for_c_open`: renders a standard C open chord and saves it as `fixtures/output/cmaj_open.svg`.
 
 These tests serve both as sanity checks and reproducible examples.
