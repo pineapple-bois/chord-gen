@@ -1,2 +1,64 @@
+# ========================================
+# OS-SPECIFIC IGNORE RULES (macOS)
+# ========================================
+
+# macOS metadata
+.DS_Store                   # Finder metadata
+.AppleDouble                # AppleDouble file metadata
+.LSOverride                 # LaunchServices override
+
+# macOS folder attributes
+Icon?                      # Custom folder icons
+._*                        # Resource fork files
+.Spotlight-V100            # Spotlight indexing
+.Trashes                   # Trash folder
+ehthumbs.db                # Windows Explorer thumbs
+Thumbs.db
+
+# ========================================
+# JETBRAINS (RustRover / IntelliJ)
+# ========================================
+
+.idea/                     # Project-specific IDE config (non-portable)
+*.iml                      # Module files (workspace-specific)
+*.ipr
+*.iws
+out/                       # Build output directory (used by some plugins)
+
+# JetBrains logs/cache
+.idea_modules/
+.idea_modules.xml
+.idea_settings.xml
+.idea/workspace.xml       # Stores local workspace settings
+
+# ========================================
+# RUST BUILD & CARGO
+# ========================================
+
+/target                   # Compiled output from Cargo
+**/*.rs.bk                 # Rust backup files
+
+# Cargo config
+.cargo/
+.cargo/config.toml
+
+# Rust toolchain override file (optional to ignore)
+rust-toolchain.toml
+
+# ========================================
+# LOG FILES AND TEMPORARY FILES
+# ========================================
+
+*.log                      # General logs
+*.tmp                      # Temp files
+*.swp                      # Vim swap files
+*.swo                      # Vim temp files
+*~                         # Backup files
+
+# ========================================
+# PROJECT SPECIFIC
+# ========================================
+
 /target
-/output
+/fixtures/output
+notes.md
